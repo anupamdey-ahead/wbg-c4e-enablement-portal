@@ -6139,7 +6139,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
         ['handoff', 'Handoff'],
       ];
       const cards = labels.filter(([key]) => repos[key]).map(([key, label]) =>
-        `<a class="card authority-card reveal" href="${repos[key]}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit">` +
+        `<a class="card authority-card" href="${repos[key]}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit">` +
         `<h3>${label} ↗</h3><p>Open the governed ${label.toLowerCase()} library in SharePoint.</p></a>`
       ).join('');
       if(cards){
