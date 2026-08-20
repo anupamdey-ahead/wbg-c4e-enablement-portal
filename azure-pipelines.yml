@@ -1,0 +1,26 @@
+# Alternative to .github/workflows/azure-static-web-apps.yml
+# Use this file INSTEAD of the GitHub Actions workflow if the repo lives in
+# Azure DevOps Repos rather than GitHub. Both deploy the same way to the
+# same Static Web App resource — pick one, not both.
+
+trigger:
+  - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - checkout: self
+    submodules: true
+
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "/"
+      api_location: ""
+      output_location: ""
+      azure_static_web_apps_api_token: "$(AZURE_STATIC_WEB_APPS_API_TOKEN)"
+    env:
+      # For pull-request preview environments in Azure Repos, this task also
+      # needs a repo token; Azure DevOps provides one automatically as
+      # System.AccessToken — no separate secret to create for that part.
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)

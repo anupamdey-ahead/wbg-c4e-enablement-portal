@@ -1,0 +1,82 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "index": "01",
+      "label": "Home",
+      "sections": [
+        { "id": "home-section-1", "label": "How the platform capabilities fit together" },
+        { "id": "home-section-2", "label": "The delivery journey & what success looks like" },
+        { "id": "home-section-3", "label": "Find your path" },
+        { "id": "home-section-4", "label": "How AHEAD delivers Dynatrace" }
+      ]
+    },
+    {
+      "id": "overview",
+      "index": "02",
+      "label": "Executive Overview",
+      "sections": [
+        { "id": "overview-section-1", "label": "Practice charter & how we work with Dynatrace" },
+        { "id": "overview-section-2", "label": "Maturity roadmap" },
+        { "id": "overview-section-3", "label": "Improvement backlog" }
+      ]
+    },
+    {
+      "id": "fundamentals",
+      "index": "03",
+      "label": "SRE Fundamentals",
+      "sections": [
+        { "id": "fundamentals-section-1", "label": "Core concepts" },
+        { "id": "fundamentals-section-2", "label": "Reliability, delivery & industry frameworks" },
+        { "id": "fundamentals-section-3", "label": "References" },
+        { "id": "fundamentals-section-4", "label": "Glossary" }
+      ]
+    },
+    {
+      "id": "implementation",
+      "index": "04",
+      "label": "Onboarding Guide",
+      "sections": [
+        { "id": "implementation-section-1", "label": "What delivery produces & how it works" },
+        { "id": "implementation-section-2", "label": "Onboarding lifecycle & stage gates" },
+        { "id": "implementation-section-3", "label": "Milestone browser — Key Steps" },
+        { "id": "implementation-section-4", "label": "Sizing & roadmap" },
+        { "id": "implementation-section-5", "label": "Roles, sign-off & validation" },
+        { "id": "implementation-section-6", "label": "Field tips & external references" }
+      ]
+    },
+    {
+      "id": "learning",
+      "index": "05",
+      "label": "Learning Hub",
+      "sections": [
+        { "id": "learning-section-1", "label": "How learning works here" },
+        { "id": "learning-section-2", "label": "Choose your path: General, Daily & Power users" },
+        { "id": "learning-section-3", "label": "Proficiency, job aids & peer learning" },
+        { "id": "learning-section-4", "label": "External learning resources" }
+      ]
+    },
+    {
+      "id": "resources",
+      "index": "06",
+      "label": "Standards, Support & Resources",
+      "sections": [
+        { "id": "resources-section-1", "label": "Standards & delivery guide library" },
+        { "id": "resources-section-2", "label": "Reusable assets & templates" },
+        { "id": "resources-section-3", "label": "Event management & external references" },
+        { "id": "resources-section-4", "label": "Help, content & measurement" },
+        { "id": "resources-section-5", "label": "Changelog" }
+      ]
+    }
+  ],
+  "quickJumpCurated": [
+    "implementation-section-2",
+    "implementation-section-3",
+    "implementation-section-4",
+    "fundamentals-section-4",
+    "resources-section-4",
+    "resources-section-1",
+    "learning-section-2",
+    "resources-section-5"
+  ]
+}

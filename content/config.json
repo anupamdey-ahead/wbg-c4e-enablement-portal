@@ -1,0 +1,27 @@
+{
+  "organization": "World Bank Group",
+  "program": "Observability & SRE Center for Enablement",
+  "platform": "Dynatrace",
+  "version": "v9.0",
+  "feedbackEmail": "REPLACE-owner@ahead.com",
+  "features": {
+    "home": true,
+    "executiveOverview": true,
+    "fundamentals": true,
+    "onboardingGuide": true,
+    "learningHub": true,
+    "resources": true,
+    "roadmapPlanner": true,
+    "quickJump": true,
+    "guidedTour": true
+  },
+  "repositories": {
+    "templates": "<SharePoint URL — C4E Templates>",
+    "standards": "<SharePoint URL — C4E Standards>",
+    "learningAssets": "<SharePoint URL — C4E Learning Assets>",
+    "operations": "<SharePoint URL — C4E Operations>",
+    "architecture": "<SharePoint URL — C4E Architecture>",
+    "validation": "<SharePoint URL — C4E Validation>",
+    "handoff": "<SharePoint URL — C4E Handoff>"
+  }
+}

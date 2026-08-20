@@ -1,0 +1,26 @@
+[
+  {
+    "id": "general",
+    "tag": "General users",
+    "title": "Understand what's monitored and why",
+    "description": "Application owners, stakeholders, and occasional visitors — the concepts, the charter, and how to read a service view.",
+    "target": { "page": "fundamentals" },
+    "next": "SRE Fundamentals"
+  },
+  {
+    "id": "daily",
+    "tag": "Daily users",
+    "title": "Work in Dynatrace day to day",
+    "description": "Support and application teams actioning alerts, running onboarding steps, and following the milestone guides.",
+    "target": { "page": "implementation", "section": "implementation-section-3" },
+    "next": "Onboarding Guide → Milestones"
+  },
+  {
+    "id": "power",
+    "tag": "Dynatrace power users",
+    "title": "Configure, tune, and own the platform",
+    "description": "Platform & Governance and Enablement specialists doing deep configuration — full Key Steps, sizing, and specialization.",
+    "target": { "page": "implementation", "section": "implementation-section-4" },
+    "next": "Onboarding Guide → Sizing & roadmap"
+  }
+]

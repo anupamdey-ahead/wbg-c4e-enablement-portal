@@ -1,0 +1,94 @@
+[
+  {
+    "term": "SRE",
+    "definition": "Site Reliability Engineering — an operating discipline that manages reliability through measurable objectives, shared ownership, and deliberate change."
+  },
+  {
+    "term": "SLO",
+    "definition": "Service Level Objective — the target level of reliability a service commits to, expressed against a measurable indicator."
+  },
+  {
+    "term": "SLI",
+    "definition": "Service Level Indicator — the measurement used to evaluate an SLO, such as availability or request latency."
+  },
+  {
+    "term": "SLA",
+    "definition": "Service Level Agreement — a contractual reliability commitment, usually looser than the internal SLO."
+  },
+  {
+    "term": "C4E",
+    "definition": "Center for Enablement — the team that owns standards, onboarding, and enablement for the observability platform rather than owning each service."
+  },
+  {
+    "term": "RUM",
+    "definition": "Real User Monitoring — telemetry captured from actual user sessions in the browser or mobile app."
+  },
+  {
+    "term": "OneAgent",
+    "definition": "The Dynatrace agent installed on a host to collect infrastructure, process, service, and trace data automatically."
+  },
+  {
+    "term": "OpenTelemetry",
+    "definition": "A vendor-neutral standard for generating and exporting traces, metrics, and logs; an alternative route to trace ingestion."
+  },
+  {
+    "term": "Management zone",
+    "definition": "A Dynatrace construct that scopes which entities a group of users can see, used to align access with service ownership."
+  },
+  {
+    "term": "Topology",
+    "definition": "The detected map of hosts, processes, services, and their relationships, used for impact analysis."
+  },
+  {
+    "term": "Synthetic monitoring",
+    "definition": "Scheduled HTTP or browser tests that actively validate availability and response time for a critical journey."
+  },
+  {
+    "term": "Alerting profile",
+    "definition": "The Dynatrace configuration that decides which problems generate a notification, and where that notification goes."
+  },
+  {
+    "term": "ITSM",
+    "definition": "IT Service Management — the ticketing and incident tooling that alerts route into at handoff."
+  },
+  {
+    "term": "MTTR",
+    "definition": "Mean Time To Resolve — the average elapsed time from detection to service restoration."
+  },
+  {
+    "term": "RACI",
+    "definition": "Responsible, Accountable, Consulted, Informed — a model for assigning ownership across roles."
+  },
+  {
+    "term": "RBAC",
+    "definition": "Role-Based Access Control."
+  },
+  {
+    "term": "Tier 1",
+    "definition": "The criticality classification applied to the most business-critical services, driving coverage depth and validation rigour."
+  },
+  {
+    "term": "Error budget",
+    "definition": "The Google SRE term for the acceptable amount of unreliability implied by an SLO (100% minus the SLO) — spent deliberately on release risk, and a signal to slow down once exhausted."
+  },
+  {
+    "term": "Toil",
+    "definition": "The Google SRE term for manual, repetitive, automatable work that scales with the size of the estate rather than getting easier over time — the reason standardized guides like this one exist."
+  },
+  {
+    "term": "Golden signals",
+    "definition": "The four signals the Google SRE book recommends watching for any user-facing system: latency, traffic, errors, and saturation."
+  },
+  {
+    "term": "Well-Architected Framework",
+    "definition": "Microsoft's set of five pillars — Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency — for evaluating architecture and platform decisions on Azure."
+  },
+  {
+    "term": "DORA metrics",
+    "definition": "Independent research findings (deployment frequency, lead time for changes, change failure rate, and time to restore service) that measure software delivery speed and stability together, regardless of platform or vendor."
+  },
+  {
+    "term": "Blameless postmortem",
+    "definition": "A Google SRE incident-review practice that assumes good intentions from everyone involved and focuses on fixing systems rather than assigning fault."
+  }
+]

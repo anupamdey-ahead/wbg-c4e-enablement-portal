@@ -1,0 +1,70 @@
+{
+  "lanes": [
+    { "id": "core", "label": "Service Onboarding" },
+    { "id": "platform", "label": "Platform & Governance" },
+    { "id": "enablement", "label": "Enablement & Learning" },
+    { "id": "adoption", "label": "Adoption & Outcomes" }
+  ],
+  "sizes": {
+    "S": 1,
+    "M": 2,
+    "L": 3,
+    "XL": 5
+  },
+  "milestones": [
+    {
+      "id": "m1",
+      "code": "M1",
+      "name": "Intake",
+      "lanes": ["core"],
+      "size": "S",
+      "deps": [],
+      "gate": "Onboarding request accepted; stakeholders named (I3)"
+    },
+    {
+      "id": "m2",
+      "code": "M2",
+      "name": "Readiness",
+      "lanes": ["core", "platform"],
+      "size": "M",
+      "deps": ["m1"],
+      "gate": "Readiness decision recorded; dependency list open (R4)"
+    },
+    {
+      "id": "m3",
+      "code": "M3",
+      "name": "Discovery",
+      "lanes": ["core", "platform"],
+      "size": "L",
+      "deps": ["m2"],
+      "gate": "Requirements and implementation plan documented (D5)"
+    },
+    {
+      "id": "m4",
+      "code": "M4",
+      "name": "Deployment",
+      "lanes": ["core", "platform"],
+      "size": "XL",
+      "deps": ["m3"],
+      "gate": "Agreed monitoring capabilities configured in the target environment (P6)"
+    },
+    {
+      "id": "m5",
+      "code": "M5",
+      "name": "Validation",
+      "lanes": ["core", "adoption"],
+      "size": "M",
+      "deps": ["m4"],
+      "gate": "Acceptance evidence captured; tuning actions recorded (V5)"
+    },
+    {
+      "id": "m6",
+      "code": "M6",
+      "name": "Handoff",
+      "lanes": ["core", "enablement", "adoption"],
+      "size": "M",
+      "deps": ["m5"],
+      "gate": "Support handoff confirmed; ownership transferred (H4)"
+    }
+  ]
+}
