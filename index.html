@@ -3400,6 +3400,52 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   const VALID_PAGES = new Set(PAGE_IDS);
   const PAGE_MAP = Object.fromEntries(PAGES.map(page => [page.id, page]));
   const SIDEBAR_NAVS = Array.from(document.querySelectorAll('.sidebar-page-tools[data-page]'));
+
+  // Navigation is static markup, not data-driven — the nav buttons above are
+  // the actual source of truth for what renders, deliberately not rebuilt
+  // from JSON (that would be a much larger structural change with real
+  // regression risk to the approved navigation, for zero visual benefit
+  // today since content/navigation.json currently mirrors the markup
+  // exactly). Instead, this fetches content/navigation.json purely as a
+  // drift check: if a future edit to one gets out of sync with the other,
+  // this logs a console warning naming exactly what's mismatched, rather
+  // than the drift going unnoticed until a user reports broken navigation.
+  async function checkNavigationDrift(){
+    try {
+      const res = await fetch('content/navigation.json');
+      if(!res.ok) return;
+      const data = await res.json();
+      if(!Array.isArray(data.pages)) return;
+      const jsonPageIds = data.pages.map(p => p.id);
+      const domPageIds = PAGE_IDS;
+      const missingInDom = jsonPageIds.filter(id => !domPageIds.includes(id));
+      const missingInJson = domPageIds.filter(id => !jsonPageIds.includes(id));
+      if(missingInDom.length || missingInJson.length){
+        console.warn(
+          'content/navigation.json has drifted from the rendered navigation.',
+          { inJsonNotInPage: missingInDom, inPageNotInJson: missingInJson }
+        );
+      }
+      data.pages.forEach(p => {
+        if(!Array.isArray(p.sections)) return;
+        const domSectionIds = SIDEBAR_NAVS
+          .filter(el => el.dataset.page === p.id)
+          .flatMap(el => Array.from(el.querySelectorAll('.section-link[data-section]')).map(b => b.dataset.section));
+        const jsonSectionIds = p.sections.map(s => s.id);
+        const missing = jsonSectionIds.filter(id => !domSectionIds.includes(id));
+        const extra = domSectionIds.filter(id => !jsonSectionIds.includes(id));
+        if(missing.length || extra.length){
+          console.warn(
+            `content/navigation.json sections for page "${p.id}" have drifted from the rendered navigation.`,
+            { inJsonNotInPage: missing, inPageNotInJson: extra }
+          );
+        }
+      });
+    } catch(e) {
+      console.warn('Could not load content/navigation.json for the drift check.', e);
+    }
+  }
+  window.checkNavigationDrift = checkNavigationDrift;
   const SEARCH_INPUT = document.querySelector('.search-input');
   const SEARCH_RESULTS = document.querySelector('.search-results');
   const SEARCH_CLEAR = document.querySelector('.search-clear');
@@ -4431,7 +4477,13 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   // the matching CSS custom properties (--rm-core/--rm-platform/B/C, .rm-sw-*,
   // .rm-bar-*, .pill.*, .module-tone-*, .hero-seg-*, .role-tone-*, .av-*)
   // and the three HTML checkboxes in the "Dynamic roadmap" section below.
-  const LANES = [
+  // NOTE: LANES and MILESTONES below are FALLBACK DEFAULTS only. On load,
+  // Init fetches content/milestones.json and overwrites both if the fetch
+  // succeeds and the data looks valid — see loadRoadmapContent() and
+  // recomputeRoadmapDerivedState() further down. Kept mutable (let, not
+  // const) so that override can happen without touching every place these
+  // are read (closures pick up the reassigned value automatically).
+  let LANES = [
     { id:'core',   label:'Service Onboarding' },
     { id:'platform',   label:'Platform & Governance' },
     { id:'enablement', label:'Enablement & Learning' },
@@ -4445,7 +4497,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   // first (drives the critical path); `gate` is the one-line exit criteria
   // shown in tooltips and the SVG/PNG export. Add, remove, or reorder freely
   // — nothing else in this file hardcodes a milestone count.
-  const MILESTONES = [
+  let MILESTONES = [
     { id:'m1', code:'M1', name:'Intake', lanes:['core'], size:'S', deps:[], gate:'Onboarding request accepted; stakeholders named (I3)' },
     { id:'m2', code:'M2', name:'Readiness', lanes:['core','platform'], size:'M', deps:['m1'], gate:'Readiness decision recorded; dependency list open (R4)' },
     { id:'m3', code:'M3', name:'Discovery', lanes:['core','platform'], size:'L', deps:['m2'], gate:'Requirements and implementation plan documented (D5)' },
@@ -4453,9 +4505,19 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
     { id:'m5', code:'M5', name:'Validation', lanes:['core','adoption'], size:'M', deps:['m4'], gate:'Acceptance evidence captured; tuning actions recorded (V5)' },
     { id:'m6', code:'M6', name:'Handoff', lanes:['core','enablement','adoption'], size:'M', deps:['m5'], gate:'Support handoff confirmed; ownership transferred (H4)' }
   ];
-  const BASELINE = Object.fromEntries(MILESTONES.map(m => [m.id, m.size]));
-  let sizes = Object.assign({}, BASELINE, store.get() || {});
-  Object.keys(sizes).forEach(k => { if(!SIZES.includes(sizes[k]) || !BASELINE[k]) delete sizes[k]; });
+  // BASELINE and sizes are derived from MILESTONES, so they need to be
+  // recomputed whenever MILESTONES changes (i.e. after a successful
+  // content/milestones.json fetch). Wrapped in a function so both the
+  // initial (fallback-based) computation and any later (fetched-content)
+  // recomputation go through the same logic.
+  let BASELINE = {};
+  let sizes = {};
+  function recomputeBaselineAndSizes(){
+    BASELINE = Object.fromEntries(MILESTONES.map(m => [m.id, m.size]));
+    sizes = Object.assign({}, BASELINE, store.get() || {});
+    Object.keys(sizes).forEach(k => { if(!SIZES.includes(sizes[k]) || !BASELINE[k]) delete sizes[k]; });
+  }
+  recomputeBaselineAndSizes();
 
   function activeMsWith(sc){
     return MILESTONES.filter(m => m.lanes.some(l => l === 'core' || sc[l]));
@@ -4555,8 +4617,43 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   })();
 
   /* ---- Dependency chains (for hover intelligence + tooltips) ---- */
-  const DEPENDENTS = {};
-  MILESTONES.forEach(m => m.deps.forEach(d => { (DEPENDENTS[d] = DEPENDENTS[d] || []).push(m.id); }));
+  let DEPENDENTS = {};
+  function recomputeDependents(){
+    DEPENDENTS = {};
+    MILESTONES.forEach(m => m.deps.forEach(d => { (DEPENDENTS[d] = DEPENDENTS[d] || []).push(m.id); }));
+  }
+  recomputeDependents();
+
+  async function loadRoadmapContent(){
+    try {
+      const res = await fetch('content/milestones.json');
+      if(!res.ok) return; // keep inline fallback silently
+      const data = await res.json(); // { lanes: [...], sizes: {...}, milestones: [...] }
+      const validLanes = Array.isArray(data.lanes) && data.lanes.every(l => l && l.id && l.label);
+      const validMilestones = Array.isArray(data.milestones) && data.milestones.length &&
+        data.milestones.every(m => m && m.id && m.code && m.name && Array.isArray(m.lanes) && Array.isArray(m.deps));
+      if(validLanes && validMilestones){
+        LANES = data.lanes;
+        MILESTONES = data.milestones;
+        // Recompute everything derived from LANES/MILESTONES now that they've
+        // changed, then re-render the visible chart and owner grid so the
+        // page actually reflects the fetched data — render() and
+        // fillOwnerGrid() both already ran once synchronously (using the
+        // inline fallback) before this fetch had a chance to resolve, so
+        // without this second call the fetched content would update
+        // in-memory state but never reach the screen.
+        recomputeBaselineAndSizes();
+        recomputeDependents();
+        render();
+        fillOwnerGrid();
+      }
+    } catch(e) {
+      // Network error, bad JSON, shape mismatch, etc. — keep using the
+      // inline fallback defaults above; the roadmap still renders correctly.
+      console.warn('Could not load content/milestones.json, using built-in roadmap data.', e);
+    }
+  }
+  window.loadRoadmapContent = loadRoadmapContent;
   function chainOf(id, plan){
     const up = new Set(), down = new Set();
     const walkUp = x => (msById(x).deps || []).forEach(d => { if(plan[d] && !up.has(d)){ up.add(d); walkUp(d); } });
@@ -6015,7 +6112,8 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   // Content is fetched before any content-dependent rendering runs, so the
   // glossary annotation pass and table always reflect whichever glossary
   // (fetched or inline fallback) ends up in the GLOSSARY variable.
-  loadGlossaryContent().finally(() => {
+  if(window.checkNavigationDrift) window.checkNavigationDrift(); // non-blocking; only logs if content/navigation.json disagrees with the rendered nav
+  Promise.all([loadGlossaryContent(), window.loadRoadmapContent()]).finally(() => {
     annotate();
     if(lcInitRender) lcInitRender();
     tagLinkedSteps();
