@@ -3213,6 +3213,9 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <div class="card authority-card reveal"><h3>Examples and references</h3><p><strong>Dynatrace public docs</strong> explain the platform and stay the reference for configuration detail — but they don't override a project's approved designs.</p></div>
 </div>
 <div class="callout reveal"><strong>Source of truth:</strong> when there's a conflict, the agreed project scope and approved designs take precedence, then the delivery guides, then Dynatrace's own public documentation and examples.</div>
+<div class="section-label" style="margin-top:22px">Governed content libraries</div>
+<p class="mini" style="margin:0 0 12px">Templates, standards, and other governed documents live in SharePoint, not in this page — these links open the current published library for each category. <span id="governed-libraries-status"></span></p>
+<div class="grid-3" id="governed-libraries-grid"></div>
 <div class="section-label">Practice asset catalog</div>
 <p class="mini" style="margin:0 0 12px">Before launch, confirm resource names, owners, statuses, and publication links.</p>
 <table class="reveal">
@@ -6112,6 +6115,45 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   // Content is fetched before any content-dependent rendering runs, so the
   // glossary annotation pass and table always reflect whichever glossary
   // (fetched or inline fallback) ends up in the GLOSSARY variable.
+  // The Resources page links to governed SharePoint libraries (templates,
+  // standards, etc.) rather than duplicating that content in the portal.
+  // The URLs live in content/config.json's "repositories" block — the
+  // single authoritative source — so this only ever renders what's there;
+  // it never hardcodes a SharePoint URL in the page itself.
+  async function loadGovernedLibraries(){
+    const grid = document.getElementById('governed-libraries-grid');
+    const status = document.getElementById('governed-libraries-status');
+    if(!grid) return; // Resources page markup not present (shouldn't happen, but don't throw if it changes)
+    try {
+      const res = await fetch('content/config.json');
+      if(!res.ok) throw new Error('config.json fetch failed: ' + res.status);
+      const data = await res.json();
+      const repos = data.repositories || {};
+      const labels = [
+        ['templates', 'Templates'],
+        ['standards', 'Standards'],
+        ['operations', 'Operations'],
+        ['learningAssets', 'Learning Assets'],
+        ['architecture', 'Architecture'],
+        ['validation', 'Validation'],
+        ['handoff', 'Handoff'],
+      ];
+      const cards = labels.filter(([key]) => repos[key]).map(([key, label]) =>
+        `<a class="card authority-card reveal" href="${repos[key]}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit">` +
+        `<h3>${label} ↗</h3><p>Open the governed ${label.toLowerCase()} library in SharePoint.</p></a>`
+      ).join('');
+      if(cards){
+        grid.innerHTML = cards;
+      } else {
+        grid.innerHTML = '';
+        if(status) status.textContent = ' No governed libraries are configured yet.';
+      }
+    } catch(e) {
+      console.warn('Could not load governed library links from content/config.json.', e);
+      if(status) status.textContent = ' Library links are temporarily unavailable.';
+    }
+  }
+  loadGovernedLibraries(); // non-blocking; page still works if this fails, just without the library links
   if(window.checkNavigationDrift) window.checkNavigationDrift(); // non-blocking; only logs if content/navigation.json disagrees with the rendered nav
   Promise.all([loadGlossaryContent(), window.loadRoadmapContent()]).finally(() => {
     annotate();

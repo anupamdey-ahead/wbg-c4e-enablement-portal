@@ -4,6 +4,7 @@
   "platform": "Dynatrace",
   "version": "v9.0",
   "feedbackEmail": "REPLACE-owner@ahead.com",
+  "_repositoriesNote": "TEST CONFIGURATION: repositories below point to AHEAD's internal SharePoint tenant (thinkaheadit.sharepoint.com) as a stand-in for WBG's own SharePoint, for internal architecture testing only. Links are only accessible to users with access to that AHEAD tenant. Replace with WBG-hosted SharePoint URLs before any WBG-facing deployment.",
   "features": {
     "home": true,
     "executiveOverview": true,
@@ -16,12 +17,12 @@
     "guidedTour": true
   },
   "repositories": {
-    "templates": "<SharePoint URL — C4E Templates>",
-    "standards": "<SharePoint URL — C4E Standards>",
-    "learningAssets": "<SharePoint URL — C4E Learning Assets>",
-    "operations": "<SharePoint URL — C4E Operations>",
-    "architecture": "<SharePoint URL — C4E Architecture>",
-    "validation": "<SharePoint URL — C4E Validation>",
-    "handoff": "<SharePoint URL — C4E Handoff>"
+    "templates": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Templates?d=wf6b9bdb03e534e4d89dd8638b077ae61&csf=1&web=1&e=tkCznS",
+    "standards": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Standards?d=wff723beeec5f436f88ef21c53ba55508&csf=1&web=1&e=l3bazD",
+    "operations": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Operations?d=w177fdf3771724145910fdb9a5fe03ab0&csf=1&web=1&e=EHYxW9",
+    "learningAssets": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Learning%20Assets?d=w656392b16df34ae7b55ba9eb47b0bc05&csf=1&web=1&e=jLkbc2",
+    "architecture": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Architecture?d=wd8136dd73b4844779be7b7e30f18932b&csf=1&web=1&e=9556Ap",
+    "validation": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Validation?d=w31f3ce311ef74c579380805c74818a54&csf=1&web=1&e=z47c9x",
+    "handoff": "https://thinkaheadit.sharepoint.com/:f:/r/sites/CUST-TheWorldBank/Shared%20Documents/AHD2026659913%20(AHD2025630178)%20Dynatrace%20RFP/Project/Presentations/C4E%20Portal%20Content/Handoff?d=w224a5b364f14486e98208ef4ef33eb8e&csf=1&web=1&e=KfWoBe"
   }
 }
