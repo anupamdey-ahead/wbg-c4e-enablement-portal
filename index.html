@@ -5184,7 +5184,12 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   // straight from Object.keys(GLOSSARY), so the two can never drift). Add
   // your own domain terms; the ones below are generic starting examples
   // common across AHEAD practices.
-  const GLOSSARY = {
+  // NOTE: this inline object is now a FALLBACK DEFAULT only. On load, Init
+  // (below) fetches content/glossary.json and overwrites these entries if
+  // the fetch succeeds — keeping the app fully functional offline/on fetch
+  // failure, while content/glossary.json is the authoritative source in
+  // normal operation (see docs/deployment-notes.md).
+  let GLOSSARY = {
     'SRE':'Site Reliability Engineering — an operating discipline that manages reliability through measurable objectives, shared ownership, and deliberate change.',
     'SLO':'Service Level Objective — the target level of reliability a service commits to, expressed against a measurable indicator.',
     'SLI':'Service Level Indicator — the measurement used to evaluate an SLO, such as availability or request latency.',
@@ -5209,7 +5214,26 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
     'DORA metrics':'Independent research findings (deployment frequency, lead time for changes, change failure rate, and time to restore service) that measure software delivery speed and stability together, regardless of platform or vendor.',
     'Blameless postmortem':'A Google SRE incident-review practice that assumes good intentions from everyone involved and focuses on fixing systems rather than assigning fault.'
   };
-  const GLOSS_RE = new RegExp('\\b(' + Object.keys(GLOSSARY).join('|') + ')\\b', 'g');
+  let GLOSS_RE = new RegExp('\\b(' + Object.keys(GLOSSARY).join('|') + ')\\b', 'g');
+  function rebuildGlossaryRegex(){
+    GLOSS_RE = new RegExp('\\b(' + Object.keys(GLOSSARY).join('|') + ')\\b', 'g');
+  }
+  async function loadGlossaryContent(){
+    try {
+      const res = await fetch('content/glossary.json');
+      if(!res.ok) return; // keep inline fallback silently
+      const entries = await res.json(); // [{term, definition}, ...]
+      const fetched = {};
+      entries.forEach(e => { if(e && e.term) fetched[e.term] = e.definition; });
+      if(Object.keys(fetched).length){
+        GLOSSARY = fetched;
+        rebuildGlossaryRegex();
+      }
+    } catch(e) {
+      // Network error, bad JSON, etc. — keep using the inline fallback above.
+      console.warn('Could not load content/glossary.json, using built-in glossary.', e);
+    }
+  }
 
   function annotate(){
     document.querySelectorAll('section.page .content').forEach(root => {
@@ -5246,7 +5270,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
           }
           if(!handled && GLOSSARY[tok]){
             const block = node.parentElement.closest('p,li,td,h3,.mini,.milestone-desc,.lede') || node.parentElement;
-            const key = 'g_' + tok.toLowerCase();
+            const key = 'g_' + tok.toLowerCase().replace(/[^a-z0-9]+/g, '_');
             if(!block.dataset[key]){
               block.dataset[key] = '1';
               const sp = document.createElement('span');
@@ -5988,16 +6012,21 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
   }
 
   /* ---------- Init ---------- */
-  annotate();
-  if(lcInitRender) lcInitRender();
-  tagLinkedSteps();
-  const glossaryTbody = document.getElementById('glossary-tbody');
-  if(glossaryTbody){
-    glossaryTbody.innerHTML = Object.keys(GLOSSARY).sort().map(k =>
-      `<tr><td><strong>${k}</strong></td><td>${GLOSSARY[k]}</td></tr>`).join('');
-  }
-  if(window.rebuildSearchIndex) window.rebuildSearchIndex();
-  if(window.__syncHeroStats) window.__syncHeroStats();
+  // Content is fetched before any content-dependent rendering runs, so the
+  // glossary annotation pass and table always reflect whichever glossary
+  // (fetched or inline fallback) ends up in the GLOSSARY variable.
+  loadGlossaryContent().finally(() => {
+    annotate();
+    if(lcInitRender) lcInitRender();
+    tagLinkedSteps();
+    const glossaryTbody = document.getElementById('glossary-tbody');
+    if(glossaryTbody){
+      glossaryTbody.innerHTML = Object.keys(GLOSSARY).sort().map(k =>
+        `<tr><td><strong>${k}</strong></td><td>${GLOSSARY[k]}</td></tr>`).join('');
+    }
+    if(window.rebuildSearchIndex) window.rebuildSearchIndex();
+    if(window.__syncHeroStats) window.__syncHeroStats();
+  });
   buildQjIndex();
   if(store.get('wbg-c4e-track-on') === 'true') setTracking(true);
   applyTrack();
