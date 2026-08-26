@@ -2130,6 +2130,9 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <button class="section-link" data-section="resources-slis-slos" type="button">SLIs and SLOs</button>
 <button class="section-link" data-section="resources-dashboards" type="button">Dashboards</button>
 <button class="section-link" data-section="resources-alert-routing" type="button">Alert routing</button>
+<button class="section-link" data-section="resources-config-as-code" type="button">Configuration as code</button>
+<button class="section-link" data-section="resources-runbook-template" type="button">Runbook template</button>
+<button class="section-link" data-section="resources-getting-help" type="button">Getting help</button>
 </div></div>
 </div><div class="status-box" data-version="v9.0">WBG’s home for Dynatrace onboarding, SRE practice, learning paths, and standards — built and maintained with AHEAD.<span class="mini" style="display:block;margin-top:8px"><a class="jump" data-section="resources-section-5" data-target="resources" href="#">Changelog</a> · <a href="mailto:REPLACE-owner@ahead.com?subject=WBG%20C4E%20Enablement%20Library%20feedback">Send feedback</a> · <a data-tour-start="" href="#">Replay tour</a></span><div class="status-keys"><span class="key-row"><kbd>Ctrl</kbd><kbd>K</kbd> jump</span><span class="key-row"><kbd>←</kbd><kbd>→</kbd> sections</span><span class="key-row"><kbd>Shift</kbd><kbd>←→</kbd> pages</span></div></div>
 </aside>
@@ -2150,7 +2153,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <tr><td style="width:34%"><strong>Onboard my application</strong></td><td>The four steps, what we need from you, and what to expect · <a class="jump" data-target="implementation" href="#">Onboarding Guide →</a></td></tr>
 <tr><td><strong>Generate my tags and install commands</strong></td><td>Host group, network zone, mandatory tags, and platform install commands for your service · <strong>Dynatrace Onboarding Tool →</strong></td></tr>
 <tr><td><strong>Find a standard</strong></td><td>Tagging, naming, access, logging, tiers, SLOs, dashboards, alerting, configuration as code · <a class="jump" data-target="resources" href="#">Standards →</a></td></tr>
-<tr><td><strong>Ask a question</strong></td><td>Post in <strong>Onboarding Help</strong> in Teams, or see what to ask where · <strong>Join the team →</strong> · <a class="jump" data-target="resources" href="#">Support →</a></td></tr>
+<tr><td><strong>Ask a question</strong></td><td>Post in <strong>Onboarding Help</strong> in Teams, or see what to ask where · <strong>Join the team →</strong> · <a class="jump" data-target="resources" data-section="resources-getting-help" href="#">Support →</a></td></tr>
 </tbody>
 </table>
 <p class="mini" style="margin-top:10px"><em>In a hurry? <strong>Onboarding at a glance</strong> is the whole process on one page.</em></p>
@@ -3189,8 +3192,8 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <tbody>
 <tr><td><strong><a class="jump" data-target="resources" data-section="resources-dashboards" href="#">Dashboards</a></strong></td><td>The four standard patterns and what each is for</td><td>Service owners and operations</td></tr>
 <tr><td><strong><a class="jump" data-target="resources" data-section="resources-alert-routing" href="#">Alert routing</a></strong></td><td>How a problem reaches the right people, and why your tags decide that</td><td>Every team, at Build</td></tr>
-<tr><td><strong>Runbook template</strong></td><td>The shape a runbook takes, so an alert always links to something recognisable</td><td>Teams on call</td></tr>
-<tr><td><strong>Configuration as code</strong></td><td>What is managed in Terraform, what is done through Port, and what uses the API</td><td>Platform and DevOps engineers</td></tr>
+<tr><td><strong><a class="jump" data-target="resources" data-section="resources-runbook-template" href="#">Runbook template</a></strong></td><td>The shape a runbook takes, so an alert always links to something recognisable</td><td>Teams on call</td></tr>
+<tr><td><strong><a class="jump" data-target="resources" data-section="resources-config-as-code" href="#">Configuration as code</a></strong></td><td>What is managed in Terraform, what is done through Port, and what uses the API</td><td>Platform and DevOps engineers</td></tr>
 </tbody>
 </table>
 
@@ -3198,7 +3201,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <table class="reveal">
 <thead><tr><th></th><th>What it covers</th></tr></thead>
 <tbody>
-<tr><td><strong>What to ask where</strong></td><td>Our Teams channels, and which one to use</td></tr>
+<tr><td><strong><a class="jump" data-target="resources" data-section="resources-getting-help" href="#">What to ask where</a></strong></td><td>Our Teams channels, and which one to use</td></tr>
 <tr><td><strong>FAQ</strong></td><td>Questions we have answered more than once</td></tr>
 <tr><td><strong>Known issues and platform notices</strong></td><td>Current issues, planned maintenance, and change notices</td></tr>
 </tbody>
@@ -3620,6 +3623,90 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <li><a href="https://docs.dynatrace.com/docs/semantic-dictionary/model/davis" target="_blank" rel="noopener noreferrer">Davis AI ↗</a> — problems, correlation, severity, and suppression</li>
 <li><a href="https://docs.dynatrace.com/docs/observe-and-explore/notifications-and-alerting/alerting-profiles" target="_blank" rel="noopener noreferrer">Problem alerting profiles ↗</a> — routing filters and tag-based notification logic</li>
 <li><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/notifications-and-alerting/maintenance-windows" target="_blank" rel="noopener noreferrer">Maintenance windows ↗</a> — suppression behaviour during planned work</li>
+</ul>
+
+<h2 id="resources-config-as-code" style="margin-top:34px">Configuration as code</h2>
+<p class="mini"><strong>Applies to:</strong> platform, DevOps, and observability engineers</p>
+<p class="section-intro">Three mechanisms, each with its own job.</p>
+<table class="reveal">
+<thead><tr><th>Use</th><th>For</th></tr></thead>
+<tbody>
+<tr><td><strong>Terraform</strong></td><td>Policy and environment-level configuration</td></tr>
+<tr><td><strong>Port</strong></td><td>Self-service actions — team creation, synthetic monitors, application onboarding</td></tr>
+<tr><td><strong>Direct API or dtctl</strong></td><td>Onboarding automation</td></tr>
+</tbody>
+</table>
+<p class="mini" style="margin-top:10px"><strong>Why it matters.</strong> Configuration that exists only in the interface cannot be reviewed, cannot be reproduced in another environment, and disappears without trace when someone changes it. Anything another team depends on belongs in code.</p>
+<p class="mini"><strong>Exploration is exempt.</strong> Build what you need in the interface to answer a question. The rule applies to configuration that is depended on, not to everything you touch.</p>
+<p class="mini" style="margin-top:6px"><strong>Questions:</strong> <em>Port &amp; Automation</em> in Teams.</p>
+<div class="section-label" style="margin-top:20px">Learn more from Dynatrace</div>
+<ul class="compact reveal">
+<li><a href="https://docs.dynatrace.com/docs/deliver/configuration-as-code" target="_blank" rel="noopener noreferrer">Configuration as Code overview ↗</a> — Terraform, Monaco, and Git workflows compared</li>
+<li><a href="https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform" target="_blank" rel="noopener noreferrer">Configuration as Code via Terraform ↗</a> — provider patterns and synchronisation</li>
+<li><a href="https://docs.dynatrace.com/docs/dynatrace-api/basics/dynatrace-api-authentication" target="_blank" rel="noopener noreferrer">Dynatrace API authentication ↗</a> — token scopes, for the API and dtctl route</li>
+</ul>
+
+<h2 id="resources-runbook-template" style="margin-top:34px">Runbook template</h2>
+<p class="section-intro">Copy this for each key alert condition. The completed runbook stays with your team; link it from the alert so responders reach it in one click.</p>
+<div class="card authority-card reveal" style="margin-top:14px">
+<h3>[Service name] — [Alert condition]</h3>
+<p class="mini"><strong>Owner team:</strong> · <strong>Tier:</strong> · <strong>Last reviewed:</strong></p>
+<p class="mini" style="margin-top:8px"><strong>This runbook answers:</strong> [the alert condition or conditions it responds to]</p>
+<p style="margin-top:12px"><strong>First response — in this order</strong></p>
+<ul class="compact">
+<li>[What to check first, and what a healthy value looks like]</li>
+<li>[Second check]</li>
+<li>[Third check]</li>
+</ul>
+<p style="margin-top:10px"><strong>Open these</strong></p>
+<ul class="compact">
+<li>[Dashboard link]</li>
+<li>[Saved query or notebook link]</li>
+</ul>
+<p style="margin-top:10px"><strong>Known failure modes</strong></p>
+<table class="reveal small-table">
+<thead><tr><th>If you see</th><th>It is usually</th><th>Do this</th></tr></thead>
+<tbody><tr><td></td><td></td><td></td></tr></tbody>
+</table>
+<p style="margin-top:10px"><strong>Mitigation and rollback</strong></p>
+<p class="mini">[The safe action, and how to undo it]</p>
+<p style="margin-top:10px"><strong>Escalate to</strong></p>
+<table class="reveal small-table">
+<thead><tr><th>When</th><th>Who</th><th>How</th></tr></thead>
+<tbody><tr><td></td><td></td><td></td></tr></tbody>
+</table>
+<p style="margin-top:10px"><strong>For the post-incident review</strong></p>
+<p class="mini">[What to capture while it is fresh — timings, what was tried, what was ruled out]</p>
+</div>
+
+<h2 id="resources-getting-help" style="margin-top:34px">Getting help</h2>
+<div class="section-label" style="margin-top:20px">Three steps, every time</div>
+<ul class="compact reveal">
+<li><strong>Bring the context</strong> — your service, the step you are on, and the evidence: problem IDs, screenshots, what you expected to see.</li>
+<li><strong>Pick the channel</strong> — the table below, or ask in <em>Onboarding Help</em> and we will route it.</li>
+<li><strong>It becomes reusable</strong> — questions we answer more than once become FAQ entries and page updates.</li>
+</ul>
+<div class="section-label" style="margin-top:20px">Where to ask</div>
+<table class="reveal">
+<thead><tr><th>What you need</th><th>Where</th><th>What to expect</th></tr></thead>
+<tbody>
+<tr><td>A question about onboarding or a step</td><td><strong>Onboarding Help</strong></td><td>First response within one business day</td></tr>
+<tr><td>Agents, ActiveGate, Kubernetes, cloud deployment</td><td><strong>Deploy &amp; Agents</strong></td><td>Guidance, or escalation to the platform team</td></tr>
+<tr><td>Dashboards, alerts, SLOs, tuning</td><td><strong>Dashboards, Alerts &amp; SLOs</strong></td><td>Guidance, or a pointer to the relevant standard</td></tr>
+<tr><td>A Port template failing or missing</td><td><strong>Port &amp; Automation</strong></td><td>Triage, and a template request if needed</td></tr>
+<tr><td>Programme news, releases, milestones</td><td><strong>General</strong></td><td>Read-mostly</td></tr>
+<tr><td>Change, maintenance, known issues</td><td><strong>Platform Notices</strong></td><td>Read-only</td></tr>
+<tr><td>A change record, entitlement, or access grant</td><td><strong>ServiceNow</strong></td><td>Per the standard request SLA</td></tr>
+<tr><td>How the product behaves</td><td><strong>Dynatrace documentation</strong></td><td>Canonical for product behaviour</td></tr>
+<tr><td>Something is broken in production right now</td><td><strong>Your normal incident path</strong></td><td>The C4E is not an incident channel</td></tr>
+</tbody>
+</table>
+<p class="mini" style="margin-top:10px"><strong>Please ask in channel, not by direct message.</strong> A question answered in a channel is answered for everyone; a question answered privately gets asked again next week.</p>
+<p class="mini"><strong>Email:</strong> its-observability-support@worldbankgroup.org for anything that does not fit a channel.</p>
+<div class="section-label" style="margin-top:20px">Learn more from Dynatrace</div>
+<ul class="compact reveal">
+<li><a href="https://docs.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace Documentation ↗</a> — canonical for product behaviour</li>
+<li><a href="https://support.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace Support Center ↗</a> — vendor support, for platform staff</li>
 </ul>
 </div>
 </section>

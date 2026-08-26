@@ -75,7 +75,10 @@
         { "id": "resources-instrumentation-method", "label": "Instrumentation method" },
         { "id": "resources-slis-slos", "label": "SLIs and SLOs" },
         { "id": "resources-dashboards", "label": "Dashboards" },
-        { "id": "resources-alert-routing", "label": "Alert routing" }
+        { "id": "resources-alert-routing", "label": "Alert routing" },
+        { "id": "resources-config-as-code", "label": "Configuration as code" },
+        { "id": "resources-runbook-template", "label": "Runbook template" },
+        { "id": "resources-getting-help", "label": "Getting help" }
       ]
     }
   ],
