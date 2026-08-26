@@ -1,94 +1,29 @@
 [
-  {
-    "term": "SRE",
-    "definition": "Site Reliability Engineering — an operating discipline that manages reliability through measurable objectives, shared ownership, and deliberate change."
-  },
-  {
-    "term": "SLO",
-    "definition": "Service Level Objective — the target level of reliability a service commits to, expressed against a measurable indicator."
-  },
-  {
-    "term": "SLI",
-    "definition": "Service Level Indicator — the measurement used to evaluate an SLO, such as availability or request latency."
-  },
-  {
-    "term": "SLA",
-    "definition": "Service Level Agreement — a contractual reliability commitment, usually looser than the internal SLO."
-  },
-  {
-    "term": "C4E",
-    "definition": "Center for Enablement — the team that owns standards, onboarding, and enablement for the observability platform rather than owning each service."
-  },
-  {
-    "term": "RUM",
-    "definition": "Real User Monitoring — telemetry captured from actual user sessions in the browser or mobile app."
-  },
-  {
-    "term": "OneAgent",
-    "definition": "The Dynatrace agent installed on a host to collect infrastructure, process, service, and trace data automatically."
-  },
-  {
-    "term": "OpenTelemetry",
-    "definition": "A vendor-neutral standard for generating and exporting traces, metrics, and logs; an alternative route to trace ingestion."
-  },
-  {
-    "term": "Management zone",
-    "definition": "A Dynatrace construct that scopes which entities a group of users can see, used to align access with service ownership."
-  },
-  {
-    "term": "Topology",
-    "definition": "The detected map of hosts, processes, services, and their relationships, used for impact analysis."
-  },
-  {
-    "term": "Synthetic monitoring",
-    "definition": "Scheduled HTTP or browser tests that actively validate availability and response time for a critical journey."
-  },
-  {
-    "term": "Alerting profile",
-    "definition": "The Dynatrace configuration that decides which problems generate a notification, and where that notification goes."
-  },
-  {
-    "term": "ITSM",
-    "definition": "IT Service Management — the ticketing and incident tooling that alerts route into at handoff."
-  },
-  {
-    "term": "MTTR",
-    "definition": "Mean Time To Resolve — the average elapsed time from detection to service restoration."
-  },
-  {
-    "term": "RACI",
-    "definition": "Responsible, Accountable, Consulted, Informed — a model for assigning ownership across roles."
-  },
-  {
-    "term": "RBAC",
-    "definition": "Role-Based Access Control."
-  },
-  {
-    "term": "Tier 1",
-    "definition": "The criticality classification applied to the most business-critical services, driving coverage depth and validation rigour."
-  },
-  {
-    "term": "Error budget",
-    "definition": "The Google SRE term for the acceptable amount of unreliability implied by an SLO (100% minus the SLO) — spent deliberately on release risk, and a signal to slow down once exhausted."
-  },
-  {
-    "term": "Toil",
-    "definition": "The Google SRE term for manual, repetitive, automatable work that scales with the size of the estate rather than getting easier over time — the reason standardized guides like this one exist."
-  },
-  {
-    "term": "Golden signals",
-    "definition": "The four signals the Google SRE book recommends watching for any user-facing system: latency, traffic, errors, and saturation."
-  },
-  {
-    "term": "Well-Architected Framework",
-    "definition": "Microsoft's set of five pillars — Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency — for evaluating architecture and platform decisions on Azure."
-  },
-  {
-    "term": "DORA metrics",
-    "definition": "Independent research findings (deployment frequency, lead time for changes, change failure rate, and time to restore service) that measure software delivery speed and stability together, regardless of platform or vendor."
-  },
-  {
-    "term": "Blameless postmortem",
-    "definition": "A Google SRE incident-review practice that assumes good intentions from everyone involved and focuses on fixing systems rather than assigning fault."
-  }
+  { "term": "ActiveGate", "definition": "The Dynatrace component that routes monitoring data, handles remote monitoring, and provides secure connectivity between your environment and Dynatrace." },
+  { "term": "C4E", "definition": "Center for Enablement. This site — the standards, guidance, and support for teams using Dynatrace at WBG." },
+  { "term": "CMDB", "definition": "Configuration Management Database. The record of applications and services our tags align to." },
+  { "term": "Cloud Native Full Stack", "definition": "The default way OneAgent is injected into Kubernetes workloads, at pod level." },
+  { "term": "Davis", "definition": "Dynatrace's AI engine. Detects problems by understanding how components depend on each other, rather than by watching thresholds." },
+  { "term": "DynaKube", "definition": "The configuration resource telling the Dynatrace Operator what to monitor in a Kubernetes cluster, and how." },
+  { "term": "Dynatrace Operator", "definition": "The component that manages OneAgent and ActiveGate inside a Kubernetes cluster." },
+  { "term": "Entra ID", "definition": "Microsoft's identity service. Dynatrace access is granted through Entra groups." },
+  { "term": "Error budget", "definition": "How much unreliability an SLO allows. A 99.9% availability target permits roughly 8.7 hours a year." },
+  { "term": "Grail", "definition": "The Dynatrace data store holding logs, events, metrics, and business data." },
+  { "term": "Host group", "definition": "A generated identifier scoping entities and access boundaries. Format: hosting_platform-env_short-entity_type-region_short." },
+  { "term": "LEAP", "definition": "The WBG application record. The source of application metadata including Time Criticality, which sets your service tier." },
+  { "term": "Network zone", "definition": "A generated value controlling how your agents route to Dynatrace." },
+  { "term": "OLC", "definition": "Open Learning Campus. Where WBG training paths are delivered." },
+  { "term": "OneAgent", "definition": "The Dynatrace agent installed on a host or injected into a workload. Our default instrumentation method." },
+  { "term": "OpenPipeline", "definition": "The Dynatrace processing layer shaping and routing telemetry before it is stored." },
+  { "term": "OpenTelemetry", "definition": "An open standard for instrumenting applications. Used where OneAgent does not support the technology." },
+  { "term": "PurePath", "definition": "A single traced transaction, end to end, across every service it touches." },
+  { "term": "RADAR", "definition": "Reliability, Analytics and Detection for Automated Response. The programme delivering Dynatrace at WBG." },
+  { "term": "RUM", "definition": "Real User Monitoring. Measures the experience of actual users in the browser." },
+  { "term": "SLA", "definition": "Service Level Agreement. A commitment made to someone outside the team, usually with consequences." },
+  { "term": "SLI", "definition": "Service Level Indicator. What we measure — availability, latency, error rate." },
+  { "term": "SLO", "definition": "Service Level Objective. The target we hold ourselves to against an SLI." },
+  { "term": "Smartscape", "definition": "The live map of your entities and how they depend on each other." },
+  { "term": "Synthetic monitoring", "definition": "Automated tests exercising a service on a schedule, whether or not real users are active." },
+  { "term": "Tier", "definition": "Your service's criticality, Tier 1 to Tier 4. Derived from the LEAP Time Criticality field." },
+  { "term": "Toil", "definition": "Manual, repetitive work that could be automated. SRE practice caps it at half a team's time." }
 ]

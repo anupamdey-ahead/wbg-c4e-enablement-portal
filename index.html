@@ -2081,6 +2081,7 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <button class="nav-btn" data-index="04" data-page="implementation">Onboarding Guide</button>
 <button class="nav-btn" data-index="05" data-page="learning">Learning Hub</button>
 <button class="nav-btn" data-index="06" data-page="resources">Standards, Support &amp; Resources</button>
+<button class="nav-btn" data-index="07" data-page="faq">FAQ</button>
 </nav>
 <div aria-label="Page section navigation" class="subnav-stack"><p class="subnav-eyebrow">On this page</p>
 <div aria-hidden="false" class="page-tools sidebar-page-tools active" data-page="home"><div aria-label="Page sections" class="section-nav">
@@ -2109,6 +2110,9 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <button class="section-link" data-section="implementation-section-4" type="button">Sizing &amp; roadmap</button>
 <button class="section-link" data-section="implementation-section-5" type="button">Roles, sign-off &amp; validation</button>
 <button class="section-link" data-section="implementation-section-6" type="button">Field tips &amp; external references</button>
+<button class="section-link" data-section="implementation-glance" type="button">Onboarding at a glance</button>
+<button class="section-link" data-section="implementation-step2" type="button">Step 2 — Instrumentation</button>
+<button class="section-link" data-section="implementation-step3" type="button">Step 3 — Build</button>
 </div></div>
 <div aria-hidden="true" class="page-tools sidebar-page-tools" data-page="learning" hidden=""><div aria-label="Page sections" class="section-nav">
 <button class="section-link" data-section="learning-section-1" type="button">How learning works here</button>
@@ -2133,6 +2137,14 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <button class="section-link" data-section="resources-config-as-code" type="button">Configuration as code</button>
 <button class="section-link" data-section="resources-runbook-template" type="button">Runbook template</button>
 <button class="section-link" data-section="resources-getting-help" type="button">Getting help</button>
+</div></div>
+<div aria-hidden="true" class="page-tools sidebar-page-tools" data-page="faq" hidden=""><div aria-label="Page sections" class="section-nav">
+<button class="section-link" data-section="faq-getting-started" type="button">Getting started</button>
+<button class="section-link" data-section="faq-tags-tiers-access" type="button">Tags, tiers, and access</button>
+<button class="section-link" data-section="faq-data" type="button">Data</button>
+<button class="section-link" data-section="faq-building-operating" type="button">Building and operating</button>
+<button class="section-link" data-section="faq-existing-tools" type="button">The existing tools</button>
+<button class="section-link" data-section="faq-this-site" type="button">This site</button>
 </div></div>
 </div><div class="status-box" data-version="v9.0">WBG’s home for Dynatrace onboarding, SRE practice, learning paths, and standards — built and maintained with AHEAD.<span class="mini" style="display:block;margin-top:8px"><a class="jump" data-section="resources-section-5" data-target="resources" href="#">Changelog</a> · <a href="mailto:REPLACE-owner@ahead.com?subject=WBG%20C4E%20Enablement%20Library%20feedback">Send feedback</a> · <a data-tour-start="" href="#">Replay tour</a></span><div class="status-keys"><span class="key-row"><kbd>Ctrl</kbd><kbd>K</kbd> jump</span><span class="key-row"><kbd>←</kbd><kbd>→</kbd> sections</span><span class="key-row"><kbd>Shift</kbd><kbd>←→</kbd> pages</span></div></div>
 </aside>
@@ -3004,6 +3016,136 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <tr><td>Alerting profiles and routing</td><td><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/notifications-and-alerting/alerting-profiles" rel="noopener" target="_blank">Dynatrace Documentation — alerting ↗</a></td></tr>
 </tbody>
 </table>
+
+<h2 id="implementation-glance" style="margin-top:34px">Onboarding at a glance</h2>
+<p class="section-intro"><strong>Four steps.</strong> Most of the elapsed time is your team's availability, not our configuration.</p>
+<table class="reveal">
+<thead><tr><th></th><th>What happens</th><th>What you bring</th><th>Done when</th></tr></thead>
+<tbody>
+<tr><td><strong>1 · Discovery</strong></td><td>We map your services, dependencies, journeys, and integrations</td><td>Architecture overview, key services and dependencies, critical business flows, a named contact</td><td>Scope and ownership agreed</td></tr>
+<tr><td><strong>2 · Instrumentation</strong></td><td>Your application is onboarded; tags applied; telemetry starts flowing</td><td>Pipeline access, a change window, tagging confirmation</td><td>Telemetry flowing, tags correct</td></tr>
+<tr><td><strong>3 · Build</strong></td><td>Dashboards, alerts, SLOs, and runbooks configured</td><td>What healthy looks like, SLO targets, on-call contacts</td><td>Alerts reach the right people</td></tr>
+<tr><td><strong>4 · Validation</strong></td><td>Joint testing confirms it reflects reality</td><td>Participation in testing, feedback on gaps, sign-off</td><td>Sign-off recorded</td></tr>
+</tbody>
+</table>
+<div class="section-label" style="margin-top:20px">Three things to get right early</div>
+<table class="reveal">
+<thead><tr><th></th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>Your LEAP record</strong></td><td>It sets your tier, which drives alerting, SLO targets, and log retention</td></tr>
+<tr><td><strong>Your tags</strong></td><td>Generated by the Onboarding Tool. They decide who gets paged</td></tr>
+<tr><td><strong>Your contacts</strong></td><td>An alert with no owner is an alert nobody answers</td></tr>
+</tbody>
+</table>
+<div class="section-label" style="margin-top:20px">After you go live</div>
+<table class="reveal">
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>1–30 days · Stabilize</strong></td><td>Tune alert thresholds, close coverage gaps, get your team comfortable</td></tr>
+<tr><td><strong>31–90 days · Tune</strong></td><td>Improve SLO accuracy against real baselines, reduce alert noise</td></tr>
+<tr><td><strong>90+ days · Optimize</strong></td><td>Track burn rates, bring the data into post-mortems, share what worked</td></tr>
+</tbody>
+</table>
+<p class="mini" style="margin-top:12px"><strong>Where to go:</strong> Onboarding Guide · <a class="jump" data-target="resources" href="#">Standards</a> · Dynatrace Onboarding Tool · Ask in Teams · <strong>its-observability-support@worldbankgroup.org</strong></p>
+
+<h2 id="implementation-step2" style="margin-top:34px">Step 2 — Instrumentation</h2>
+<p class="section-intro">Your application is onboarded onto Dynatrace, the tagging schema is applied, and your service begins emitting logs, metrics, and traces.</p>
+<div class="section-label" style="margin-top:20px">Before you start</div>
+<p>Discovery complete, access confirmed, your LEAP record current, and a change window booked.</p>
+<div class="section-label" style="margin-top:20px">What you bring</div>
+<ul class="compact reveal">
+<li>Access to your deployment pipelines</li>
+<li>The change window and deployment approval</li>
+<li>Confirmation of tagging compliance</li>
+<li>Sign-off on the instrumentation approach</li>
+</ul>
+<div class="section-label" style="margin-top:20px">What we provide</div>
+<ul class="compact reveal">
+<li>The instrumentation method that applies to your application</li>
+<li>The Port template for your platform</li>
+<li>Your generated tags, host group, network zone, and install commands</li>
+<li>A named contact for the window</li>
+</ul>
+<div class="section-label" style="margin-top:20px">Your deployment pathway</div>
+<p class="mini">First, confirm your method — see <a class="jump" data-target="resources" data-section="resources-instrumentation-method" href="#">Instrumentation method</a>. If it is OneAgent, find your row below.</p>
+<p class="mini">Find the row matching your application. Five columns, and the last one is the one to read before deployment day rather than at Validation.</p>
+<table class="reveal small-table">
+<thead><tr><th>Application type</th><th>Hosting and OS</th><th>Runtime</th><th>Agent or extension</th><th>What you do not get</th></tr></thead>
+<tbody>
+<tr><td>Virtual machine — code-level detail needed</td><td>On-premises · Azure · AWS · Windows or Linux</td><td>Any supported</td><td><strong>OneAgent</strong>, Full Stack mode</td><td>Nothing — this is full coverage</td></tr>
+<tr><td>Virtual machine — infrastructure visibility is enough</td><td>On-premises · Azure · AWS · Windows or Linux</td><td>Any</td><td><strong>OneAgent</strong>, Infrastructure Only mode</td><td>Code-level detail and distributed traces</td></tr>
+<tr><td>Azure App Service — web app</td><td>Azure · Windows</td><td>Any supported</td><td><strong>App Service extension</strong></td><td>Nothing significant. No sidecar to manage</td></tr>
+<tr><td>Azure App Service — web app</td><td>Azure · Linux</td><td>Any supported</td><td><strong>OneAgent sidecar container</strong></td><td>Nothing, but expect a redeploy to add the sidecar</td></tr>
+<tr><td>Azure App Service — function app</td><td>Azure · Windows</td><td>Any supported</td><td><strong>App Service extension</strong></td><td>As above</td></tr>
+<tr><td>Azure App Service — function app</td><td>Azure · Linux</td><td>Any</td><td><strong>OpenTelemetry</strong></td><td>Automatic instrumentation. Coverage is whatever you instrument</td></tr>
+<tr><td>Kubernetes — AKS or EKS</td><td>Azure · AWS · Linux</td><td>Any supported</td><td><strong>Dynatrace Operator and DynaKube</strong>, then namespace labelling</td><td>Depends on the injection mode set for your cluster — see below</td></tr>
+<tr><td>Any of the above</td><td>Any</td><td><strong>Python</strong></td><td>As the row above</td><td><strong>Real user monitoring for deep monitoring. Backend tracing only</strong></td></tr>
+<tr><td>Anything else</td><td>—</td><td>—</td><td>Talk to us first</td><td>Tagging and ownership still apply in full</td></tr>
+</tbody>
+</table>
+<p class="mini" style="margin-top:10px"><strong>If you are on Kubernetes</strong>, the injection mode is set in the design for your cluster, not chosen by your team. It changes what you see:</p>
+<table class="reveal small-table">
+<thead><tr><th>Injection mode</th><th>What you do not get</th></tr></thead>
+<tbody>
+<tr><td>Cloud Native Full Stack — the default</td><td>Nothing. A pod restart is required for injection on first deploy</td></tr>
+<tr><td>Classic Full Stack</td><td>Nothing, but a higher resource footprint per node</td></tr>
+<tr><td>Application-only monitoring</td><td>Host-level metrics for those nodes</td></tr>
+<tr><td>Host monitoring, no injection</td><td>Application traces</td></tr>
+</tbody>
+</table>
+<p class="mini">Ask in <em>Deploy &amp; Agents</em> if you are unsure which applies to you.</p>
+<div class="section-label" style="margin-top:20px">Tagging happens here, not later</div>
+<p>Tags are applied at onboarding and never retro-fitted. Generate them in the <strong>Dynatrace Onboarding Tool</strong> — do not type them by hand.</p>
+<div class="section-label" style="margin-top:20px">Complete when</div>
+<ul class="compact reveal">
+<li>Telemetry is flowing at the designed monitoring mode</li>
+<li>Your service appears in Dynatrace with the correct tags and owner</li>
+<li>On Kubernetes, namespaces needing deep monitoring carry the agreed label</li>
+<li>No open deployment issues against the change record</li>
+</ul>
+<p class="mini" style="margin-top:10px"><strong>Next:</strong> Step 3 — Build</p>
+<div class="section-label" style="margin-top:20px">Learn more from Dynatrace</div>
+<ul class="compact reveal">
+<li><a href="https://docs.dynatrace.com/docs/ingest-from/dynatrace-oneagent" target="_blank" rel="noopener noreferrer">Dynatrace OneAgent ↗</a> — virtual machine pathways</li>
+<li><a href="https://docs.dynatrace.com/docs/ingest-from/microsoft-azure-services/azure-integrations/azure-appservice" target="_blank" rel="noopener noreferrer">Monitor Azure App Service ↗</a> — the extension and sidecar routes</li>
+<li><a href="https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/full-stack-observability" target="_blank" rel="noopener noreferrer">Kubernetes Full-Stack observability ↗</a> — Operator, DynaKube, OneAgent, ActiveGate</li>
+<li><a href="https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/reference/dynakube-parameters" target="_blank" rel="noopener noreferrer">DynaKube parameters ↗</a> — network zones, capabilities, and injection settings</li>
+<li><a href="https://docs.dynatrace.com/docs/ingest-from/dynatrace-activegate" target="_blank" rel="noopener noreferrer">Dynatrace ActiveGate ↗</a> — routing and remote monitoring roles</li>
+</ul>
+<p class="mini"><em>Generate it in the Onboarding Tool · Do it in Port · Learn it on OLC · Ask in Teams</em></p>
+
+<h2 id="implementation-step3" style="margin-top:34px">Step 3 — Build</h2>
+<p class="section-intro">Dashboards, service views, and alerts are configured for your application. Health models are defined, thresholds set against agreed SLOs, and runbooks linked to key alert conditions.</p>
+<div class="section-label" style="margin-top:20px">What you bring</div>
+<ul class="compact reveal">
+<li>A definition of what healthy looks like for your service</li>
+<li>SLO targets</li>
+<li>On-call and escalation contacts</li>
+</ul>
+<div class="section-label" style="margin-top:20px">What we provide</div>
+<ul class="compact reveal">
+<li>The standard dashboard patterns, configured for your service</li>
+<li>Alerting profiles matched to your tier</li>
+<li>Guidance on SLO definition</li>
+</ul>
+<div class="section-label" style="margin-top:20px">What gets built</div>
+<table class="reveal">
+<thead><tr><th></th><th>Standard to follow</th></tr></thead>
+<tbody>
+<tr><td><strong>Dashboards</strong> — a Service Health view for your service, and your place on the tier operations view</td><td><a class="jump" data-target="resources" data-section="resources-dashboards" href="#">Dashboards</a></td></tr>
+<tr><td><strong>SLOs</strong> — availability, latency, and error rate for the journeys that matter</td><td><a class="jump" data-target="resources" data-section="resources-slis-slos" href="#">SLIs and SLOs</a></td></tr>
+<tr><td><strong>Alerting</strong> — profile matched to your tier, routed by your tags</td><td><a class="jump" data-target="resources" data-section="resources-alert-routing" href="#">Alert routing</a></td></tr>
+<tr><td><strong>Runbooks</strong> — one per key alert condition, linked from the alert</td><td><a class="jump" data-target="resources" data-section="resources-runbook-template" href="#">Runbook template</a></td></tr>
+</tbody>
+</table>
+<div class="section-label" style="margin-top:20px">Complete when</div>
+<ul class="compact reveal">
+<li>Your Service Health dashboard is in use by your team</li>
+<li>SLOs are live and reporting</li>
+<li>Alerts reach the right people through the agreed channel</li>
+<li>Every key alert condition links to a runbook</li>
+</ul>
+<p class="mini" style="margin-top:10px"><strong>Next:</strong> Step 4 — Validation</p>
 </div>
 </section>
 <section class="page" id="learning">
@@ -3708,6 +3850,45 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <li><a href="https://docs.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace Documentation ↗</a> — canonical for product behaviour</li>
 <li><a href="https://support.dynatrace.com" target="_blank" rel="noopener noreferrer">Dynatrace Support Center ↗</a> — vendor support, for platform staff</li>
 </ul>
+</div>
+</section>
+<section class="page" id="faq">
+<div class="hero">
+<div class="hero-kicker"><span class="page-type">FAQ</span>Frequently Asked</div><h1>Frequently Asked Questions</h1>
+<p>Questions we have answered more than once, so you do not have to ask them again.</p>
+</div>
+<div class="content">
+
+<h2 id="faq-getting-started">Getting started</h2>
+<div class="card authority-card reveal"><h3>How do I start onboarding my application?</h3><p>Email <strong>its-observability-support@worldbankgroup.org</strong>, or post in <em>Onboarding Help</em> in Teams. Include your LEAP shortname, the application name, and a named contact for the team that will own the service.</p></div>
+<div class="card authority-card reveal"><h3>How long does onboarding take?</h3><p>It varies with the size and complexity of your estate. Most of the elapsed time is your team's availability for Discovery and Validation rather than our configuration work.</p></div>
+<div class="card authority-card reveal"><h3>My application is not in the pilot. When will we be onboarded?</h3><p>In Phase 2: Scale. The Observability team will contact you to schedule. In the meantime, review the standards here and the training on Dynatrace Learning so your team is ready.</p></div>
+<div class="card authority-card reveal"><h3>Do I need to install anything myself?</h3><p>Usually not. For most workloads we deploy through a Port template and you provide a change window. See <a class="jump" data-target="implementation" data-section="implementation-step2" href="#">Step 2</a> for the pathway that applies to you.</p></div>
+
+<h2 id="faq-tags-tiers-access" style="margin-top:34px">Tags, tiers, and access</h2>
+<div class="card authority-card reveal"><h3>My alerts are going to the wrong people.</h3><p>Check your tags first. Routing is driven by <code>primary_tags.tier</code> and <code>primary_tags.application_team</code>, with <code>primary_tags.owner_email</code> as the destination. Nine times in ten this is a tagging problem, not an alerting one.</p></div>
+<div class="card authority-card reveal"><h3>Who decides my service tier, and can I change it?</h3><p>It derives from the Time Criticality field on your LEAP record. If it looks wrong, correct the LEAP record — do not change the tag.</p></div>
+<div class="card authority-card reveal"><h3>Can I just type the tags myself?</h3><p>Please don't. Generate them in the Dynatrace Onboarding Tool. Hand-typed tags are the most common cause of a service that looks onboarded but routes nowhere.</p></div>
+<div class="card authority-card reveal"><h3>How do I get access?</h3><p>Request the dt- Entra ID group matching the Dynatrace Team you need — see the <a class="jump" data-target="resources" data-section="resources-access" href="#">Access</a> standard. Note that access is evaluated against your tags, so they need to be right first.</p></div>
+
+<h2 id="faq-data" style="margin-top:34px">Data</h2>
+<div class="card authority-card reveal"><h3>Why are my logs only kept for ten days?</h3><p>They are landing in the default bucket, which means your tags are not routing them. Correct tags put Tier-1 application logs at 35 days and everything else at 14. See the <a class="jump" data-target="resources" data-section="resources-logging" href="#">Logging</a> standard.</p></div>
+<div class="card authority-card reveal"><h3>Can I send my logs to Splunk as well?</h3><p>Only where a downstream system needs them. We do not duplicate telemetry between platforms — Dynatrace holds operational telemetry, Splunk remains the SIEM and long-term audit store.</p></div>
+
+<h2 id="faq-building-operating" style="margin-top:34px">Building and operating</h2>
+<div class="card authority-card reveal"><h3>Do I have to define an SLO?</h3><p>If your service is Tier 1, 2, or 3, yes. Start from what your service already does rather than a round number — an SLO you cannot meet teaches your team to ignore it.</p></div>
+<div class="card authority-card reveal"><h3>Can I build my own dashboards?</h3><p>Yes, for exploring a problem. Anything your team depends on operationally should be committed as code so it survives.</p></div>
+<div class="card authority-card reveal"><h3>OneAgent does not support my technology. What now?</h3><p>Use OpenTelemetry. For GenAI and LLM applications there is a second route — the OpenInference SDK — and we are settling on one of the two. Ask in <em>Deploy &amp; Agents</em> before you start.</p></div>
+<div class="card authority-card reveal"><h3>My service deployed but is not appearing in Dynatrace.</h3><p>Check, in this order: the agent is reporting, connectivity from your network segment, and your tags. On Kubernetes, confirm your namespace carries the monitoring label.</p></div>
+
+<h2 id="faq-existing-tools" style="margin-top:34px">The existing tools</h2>
+<div class="card authority-card reveal"><h3>What happens to our Catchpoint, SiteSpeed, Smokeping, or Application Insights monitoring?</h3><p>Those tools are being phased out as Dynatrace rolls out, in phases, and teams using them will be notified before anything changes. Migration guidance for each tool will be published here as each phase is scheduled.</p></div>
+<div class="card authority-card reveal"><h3>Where did the dashboards on the Service Observability Portal go?</h3><p>Nowhere. That portal remains the launchpad for the current monitoring estate. This site covers how to onboard to Dynatrace and what standards apply.</p></div>
+
+<h2 id="faq-this-site" style="margin-top:34px">This site</h2>
+<div class="card authority-card reveal"><h3>What is the difference between Dynatrace Learning and the C4E?</h3><p>Dynatrace Learning teaches you the platform. The C4E tells you how we use it here — the standards, the onboarding process, and who to ask.</p></div>
+<div class="card authority-card reveal"><h3>I think something on this page is wrong.</h3><p>Tell us in Teams. Corrections are the most useful thing you can send us.</p></div>
+
 </div>
 </section>
 </main>

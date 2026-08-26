@@ -44,7 +44,10 @@
         { "id": "implementation-section-3", "label": "Milestone browser — Key Steps" },
         { "id": "implementation-section-4", "label": "Sizing & roadmap" },
         { "id": "implementation-section-5", "label": "Roles, sign-off & validation" },
-        { "id": "implementation-section-6", "label": "Field tips & external references" }
+        { "id": "implementation-section-6", "label": "Field tips & external references" },
+        { "id": "implementation-glance", "label": "Onboarding at a glance" },
+        { "id": "implementation-step2", "label": "Step 2 — Instrumentation" },
+        { "id": "implementation-step3", "label": "Step 3 — Build" }
       ]
     },
     {
@@ -79,6 +82,19 @@
         { "id": "resources-config-as-code", "label": "Configuration as code" },
         { "id": "resources-runbook-template", "label": "Runbook template" },
         { "id": "resources-getting-help", "label": "Getting help" }
+      ]
+    },
+    {
+      "id": "faq",
+      "index": "07",
+      "label": "FAQ",
+      "sections": [
+        { "id": "faq-getting-started", "label": "Getting started" },
+        { "id": "faq-tags-tiers-access", "label": "Tags, tiers, and access" },
+        { "id": "faq-data", "label": "Data" },
+        { "id": "faq-building-operating", "label": "Building and operating" },
+        { "id": "faq-existing-tools", "label": "The existing tools" },
+        { "id": "faq-this-site", "label": "This site" }
       ]
     }
   ],
