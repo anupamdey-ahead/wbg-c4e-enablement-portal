@@ -5,10 +5,11 @@
       "index": "01",
       "label": "Home",
       "sections": [
-        { "id": "home-section-1", "label": "How the platform capabilities fit together" },
-        { "id": "home-section-2", "label": "The delivery journey & what success looks like" },
-        { "id": "home-section-3", "label": "Find your path" },
-        { "id": "home-section-4", "label": "How AHEAD delivers Dynatrace" }
+        { "id": "home-section-1", "label": "Start here" },
+        { "id": "home-section-2", "label": "Learn the platform" },
+        { "id": "home-section-3", "label": "Understand the programme" },
+        { "id": "home-section-4", "label": "Looking for a dashboard?" },
+        { "id": "home-section-5", "label": "Where we are" }
       ]
     },
     {

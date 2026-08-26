@@ -2084,10 +2084,11 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 </nav>
 <div aria-label="Page section navigation" class="subnav-stack"><p class="subnav-eyebrow">On this page</p>
 <div aria-hidden="false" class="page-tools sidebar-page-tools active" data-page="home"><div aria-label="Page sections" class="section-nav">
-<button class="section-link" data-section="home-section-1" type="button">How the platform capabilities fit together</button>
-<button class="section-link" data-section="home-section-2" type="button">The delivery journey &amp; what success looks like</button>
-<button class="section-link" data-section="home-section-3" type="button">Find your path</button>
-<button class="section-link" data-section="home-section-4" type="button">How AHEAD delivers Dynatrace</button>
+<button class="section-link" data-section="home-section-1" type="button">Start here</button>
+<button class="section-link" data-section="home-section-2" type="button">Learn the platform</button>
+<button class="section-link" data-section="home-section-3" type="button">Understand the programme</button>
+<button class="section-link" data-section="home-section-4" type="button">Looking for a dashboard?</button>
+<button class="section-link" data-section="home-section-5" type="button">Where we are</button>
 </div></div>
 <div aria-hidden="true" class="page-tools sidebar-page-tools" data-page="overview" hidden=""><div aria-label="Page sections" class="section-nav">
 <button class="section-link" data-section="overview-section-1" type="button">Practice charter &amp; how we work with Dynatrace</button>
@@ -2128,114 +2129,41 @@ body.dark .search-result span.search-badge{background:#17364b;color:#a8b6c1}
 <section class="page active" id="home">
 <div class="hero">
 <div aria-hidden="true" class="hero-anim"></div>
-<div class="hero-kicker"><span class="page-type">Home</span>Start Here</div><h1>WBG Observability &amp; SRE Center for Enablement</h1>
-<p>The team's home for onboarding services to Dynatrace — covering application, infrastructure, digital-experience, log, and AI-assisted analysis capabilities — with the milestone guides, standards, and enablement to run onboarding consistently.</p>
-<div aria-label="Library at a glance" class="hero-stats">
-<div class="hero-stat"><strong>6</strong><span>Pages</span></div>
-<div class="hero-stat"><strong>—</strong><span>Searchable entries</span></div>
-<div class="hero-stat"><strong>—</strong><span>Reusable assets</span></div>
-<div class="hero-stat"><strong>—</strong><span>Glossary terms</span></div>
-</div>
+<div class="hero-kicker"><span class="page-type">Home</span>Start Here</div><h1>Dynatrace Center for Enablement</h1>
+<p>Standards, onboarding guidance, and support for teams running services on Dynatrace.</p>
 </div>
 <div class="content">
-<h2 id="home-section-1">How the platform capabilities fit together</h2>
-<!-- CAPABILITY LADDER: a staggered "builds on" list. -->
-<ol class="capability-ladder">
-<li class="capability-step step-1"><div class="capability-step-num" aria-hidden="true">01</div><div><span class="capability-step-kicker">Foundation</span><h3 class="capability-step-title">Monitoring</h3><p class="capability-step-copy">Monitoring identifies when service performance or availability has changed. It is the baseline signal everything else is built on — without reliable coverage, nothing above this layer can be trusted.</p><a class="capability-step-link jump" data-target="fundamentals" href="#">Learn the fundamentals <span aria-hidden="true">→</span></a></div></li>
-<li class="capability-step step-2"><div class="capability-step-num" aria-hidden="true">02</div><div><span class="capability-step-kicker">Analytical layer <small>Impact and diagnosis</small></span><h3 class="capability-step-title">Observability</h3><p class="capability-step-copy">Observability improves impact analysis, diagnosis, and understanding of how a service actually behaves, by connecting topology, traces, logs, and experience data rather than leaving correlation to the engineer.</p><a class="capability-step-link jump" data-target="fundamentals" href="#">Explore the concepts <span aria-hidden="true">→</span></a></div></li>
-<li class="capability-step step-3"><div class="capability-step-num" aria-hidden="true">03</div><div><span class="capability-step-kicker">Operating discipline <small>Objectives and ownership</small></span><h3 class="capability-step-title">Site Reliability Engineering</h3><p class="capability-step-copy">SRE provides the operating principles — measurable objectives, shared ownership, safe change, and deliberate improvement. It depends on trustworthy monitoring and observability beneath it; applied to unreliable data it produces confident but wrong decisions.</p><a class="capability-step-link jump" data-target="fundamentals" href="#">Understand this layer <span aria-hidden="true">→</span></a></div></li>
-<li class="capability-step step-4"><div class="capability-step-num" aria-hidden="true">04</div><div><span class="capability-step-kicker">Strategic platform <small>WBG platform</small></span><h3 class="capability-step-title">Dynatrace</h3><p class="capability-step-copy">Dynatrace is WBG’s strategic platform for applying these capabilities across a hybrid estate. It is working when the support team opens a service view during an incident and gets to probable cause without assembling data by hand.</p><a class="capability-step-link jump" data-target="implementation" href="#">Open the delivery guidance <span aria-hidden="true">→</span></a></div></li>
-</ol>
-<div class="capability-note"><strong>How to read this:</strong> the foundation comes first — each later layer is only as good as the metadata, tuning, and integrations beneath it, which is exactly the order the delivery milestones build in.</div>
-<div class="section-label" style="margin-top:28px">Reliability principles we use</div>
-<div class="grid-3">
-<div class="card reveal">
-<div class="source">SRE</div>
-<h3>Reliability is a product decision</h3>
-<p>Reliability is defined in terms of user experience and business impact, not component uptime, so trade-offs are made deliberately.</p>
-</div>
-<div class="card reveal">
-<div class="source">SRE</div>
-<h3>Manage reliability through measurable objectives</h3>
-<p>Service level objectives make reliability explicit, comparable, and reviewable rather than a matter of opinion.</p>
-</div>
-<div class="card reveal">
-<div class="source">Observability</div>
-<h3>Design observability with the workload</h3>
-<p>Instrumentation, metadata, and signals are planned alongside the service rather than retrofitted after an incident.</p>
-</div>
-<div class="card reveal">
-<div class="source">Observability</div>
-<h3>Correlate service context across the stack</h3>
-<p>Topology, traces, logs, and experience data are connected so impact analysis does not depend on manual correlation.</p>
-</div>
-<div class="card reveal">
-<div class="source">Operations</div>
-<h3>Safe change reduces risk</h3>
-<p>Progressive delivery, canaries, validation, and rollback paths limit the blast radius of every change.</p>
-</div>
-<div class="card reveal">
-<div class="source">Operations</div>
-<h3>Shared ownership keeps teams accountable</h3>
-<p>Product teams own their services; the C4E provides standards and support rather than taking that ownership over.</p>
-</div>
-<div class="card reveal">
-<div class="source">Google SRE</div>
-<h3>Spend the error budget on purpose</h3>
-<p>The gap between 100% and the SLO is a budget for risk — spend it deliberately on releases and experiments, and slow down when it runs out.</p>
-</div>
-<div class="card reveal">
-<div class="source">Azure Well-Architected</div>
-<h3>Design for failure, not just for success</h3>
-<p>Assume components will fail. Set recovery targets up front, and test the failure paths before you need them in production.</p>
-</div>
-<div class="card reveal">
-<div class="source">DORA</div>
-<h3>Fast and stable aren't in tension</h3>
-<p>Independent research consistently finds elite teams are both — small changes, fast feedback, and good rollback paths deliver speed and safety together, not one at the expense of the other.</p>
-</div>
-</div>
+<div class="callout reveal"><strong>New here?</strong> Start with <a class="jump" data-target="overview" href="#">Dynatrace at WBG</a> for what the platform is, or go straight to <a class="jump" data-target="implementation" href="#">onboarding</a> if your application is ready.</div>
 
-<h2 id="home-section-2" style="margin-top:34px">The delivery journey &amp; what success looks like</h2>
-<p class="section-intro">When the platform layers and the delivery method work together, every onboarding should land a small set of measurable outcomes.</p>
-<div class="grid-4">
-<div class="card metric reveal"><h3>Detect earlier</h3><p>Emerging issues are identified before they become widespread service disruption.</p></div>
-<div class="card metric reveal"><h3>Understand impact</h3><p>Technical conditions are connected to the affected applications, services, and business journeys.</p></div>
-<div class="card metric reveal"><h3>Resolve faster</h3><p>Less time is spent collecting data, and probable causes are isolated more efficiently.</p></div>
-<div class="card metric reveal"><h3>Improve continuously</h3><p>Service data, incident learning, and operational trends drive the next round of improvements.</p></div>
-</div>
-<p class="lede" style="margin-top:18px">Every onboarding runs the same six milestones — intake through handoff — with the workstreams sequenced across them.</p>
-<div class="journey reveal" style="grid-template-columns:repeat(6,1fr)">
-<div class="step">M1 · Intake</div><div class="step">M2 · Readiness</div><div class="step">M3 · Discovery</div><div class="step">M4 · Deployment</div><div class="step">M5 · Validation</div><div class="step">M6 · Handoff</div>
-</div>
-<div class="callout reveal">
-<strong>Operating principle:</strong> every line item ends in a validation gate (✅), and the major transitions are anchored by a recorded decision — the readiness decision (R4), the implementation plan (D5), acceptance evidence (V5), and the support handoff (H4).
-        </div>
-
-<h2 id="home-section-3" style="margin-top:34px">Find your path</h2>
-<p class="section-intro">Three ways people use this hub. Pick the one closest to how you’ll use it — you can always cross over.</p>
-<!-- ROLE CARD: one per audience tier. role-tone-* sets the top accent bar. -->
-<div class="role-grid reveal">
-<div aria-label="Open fundamentals for general users" class="role-card reveal role-tone-new" data-target="fundamentals" role="button" tabindex="0"><div class="role-icon"><svg aria-hidden="true" class="ico"><use href="#i-book"></use></svg></div><span class="tag">General users</span><h3>Understand what’s monitored and why</h3><p>Application owners, stakeholders, and occasional visitors — the concepts, the charter, and how to read a service view.</p><div class="next">Next: SRE Fundamentals</div></div>
-<div aria-label="Open the delivery guide summary for daily users" class="role-card reveal role-tone-coord" data-target="implementation" data-section="implementation-section-3" role="button" tabindex="0"><div class="role-icon"><svg aria-hidden="true" class="ico"><use href="#i-kanban"></use></svg></div><span class="tag">Daily users</span><h3>Work in Dynatrace day to day</h3><p>Support and application teams actioning alerts, running onboarding steps, and following the milestone guides.</p><div class="next">Next: Onboarding Guide → Milestones</div></div>
-<div aria-label="Open sizing and roadmap for power users" class="role-card reveal role-tone-platform" data-target="implementation" data-section="implementation-section-4" role="button" tabindex="0"><div class="role-icon"><svg aria-hidden="true" class="ico"><use href="#i-gear"></use></svg></div><span class="tag">Dynatrace power users</span><h3>Configure, tune, and own the platform</h3><p>Platform &amp; Governance and Enablement specialists doing deep configuration — full Key Steps, sizing, and specialization.</p><div class="next">Next: Onboarding Guide → Sizing &amp; roadmap</div></div>
-</div>
-<div class="entry-links reveal" style="margin-top:16px">
-<button class="section-linkish jump" data-target="overview" type="button">Leadership view: Executive Overview →</button>
-<button class="section-linkish jump" data-target="implementation" data-section="implementation-section-2" type="button">Browse by lifecycle stage →</button>
-<button class="section-linkish jump" data-target="resources" type="button">Standards, support &amp; resources →</button>
-</div>
-
-<h2 id="home-section-4" style="margin-top:34px">How AHEAD delivers Dynatrace</h2>
+<h2 id="home-section-1" style="margin-top:28px">Start here</h2>
 <table class="reveal">
-<thead><tr><th>Current challenge</th><th>Target direction</th></tr></thead>
 <tbody>
-<tr><td>Service issues are often reported by users before monitoring detects them.</td><td>Emerging conditions are detected from telemetry before users are affected.</td></tr>
-<tr><td>Impact assessment depends on manual correlation across separate tools.</td><td>Topology and traces connect a technical condition to the services and journeys it affects.</td></tr>
-<tr><td>Alert volume is high and routing is inconsistent, so signals are not reliably actionable.</td><td>Alerts are tuned, owned, and routed to the team that can act on them.</td></tr>
-<tr><td>Onboarding and coverage vary by team, so practice is uneven across the estate.</td><td>Every service onboards through one repeatable lifecycle with a recorded readiness decision and acceptance evidence.</td></tr>
+<tr><td style="width:34%"><strong>Onboard my application</strong></td><td>The four steps, what we need from you, and what to expect · <a class="jump" data-target="implementation" href="#">Onboarding Guide →</a></td></tr>
+<tr><td><strong>Generate my tags and install commands</strong></td><td>Host group, network zone, mandatory tags, and platform install commands for your service · <strong>Dynatrace Onboarding Tool →</strong></td></tr>
+<tr><td><strong>Find a standard</strong></td><td>Tagging, naming, access, logging, tiers, SLOs, dashboards, alerting, configuration as code · <a class="jump" data-target="resources" href="#">Standards →</a></td></tr>
+<tr><td><strong>Ask a question</strong></td><td>Our Teams channels, and what to ask where · <a class="jump" data-target="resources" href="#">Support →</a></td></tr>
 </tbody>
 </table>
+
+<h2 id="home-section-2" style="margin-top:34px">Learn the platform</h2>
+<p class="section-intro"><strong>Dynatrace Learning</strong> carries the WBG training paths — Practitioner, Implementer, and Administrator — alongside Dynatrace University. Several WBG-authored paths are still in preparation; the Dynatrace University plans are available today.</p>
+
+<h2 id="home-section-3" style="margin-top:34px">Understand the programme</h2>
+<table class="reveal">
+<tbody>
+<tr><td style="width:34%"><strong><a href="https://worldbankgroup.sharepoint.com/sites/ITSPL/SitePages/Dynatrace-at-WBG.aspx" target="_blank" rel="noopener noreferrer">Dynatrace at WBG</a></strong></td><td>What Dynatrace is, why we chose it, and what it covers</td></tr>
+<tr><td><strong><a href="https://worldbankgroup.sharepoint.com/sites/ITSPL/SitePages/Dynatrace-Rollout.aspx" target="_blank" rel="noopener noreferrer">Dynatrace Rollout</a></strong></td><td>The RADAR programme, its phases, and where we are today</td></tr>
+<tr><td><strong><a href="https://worldbankgroup.sharepoint.com/sites/ITSPL/SitePages/Observability-at-WBG.aspx" target="_blank" rel="noopener noreferrer">Observability at WBG</a></strong></td><td>What observability means here, and where we sit on the maturity model</td></tr>
+<tr><td><strong><a href="https://worldbankgroup.sharepoint.com/sites/ITSPL/SitePages/Site-Reliability-Engineering.aspx" target="_blank" rel="noopener noreferrer">Site Reliability Engineering</a></strong></td><td>The practice, the capabilities, and how they fit together</td></tr>
+</tbody>
+</table>
+
+<h2 id="home-section-4" style="margin-top:34px">Looking for a dashboard?</h2>
+<p class="section-intro">Consoles and dashboards for the current monitoring estate are on the <strong>Service Observability Portal</strong>. Note that several tools listed there — Smokeping, SiteSpeed, Catchpoint, and Azure Application Insights — are being phased out as Dynatrace rolls out.</p>
+
+<h2 id="home-section-5" style="margin-top:34px">Where we are</h2>
+<div class="callout reveal">[PLACEHOLDER — current rollout status: phase, applications onboarded, applications in flight. Needs a source and a refresh owner.]</div>
+<p class="mini" style="margin-top:10px"><strong>Owner:</strong> [PLACEHOLDER] · <strong>Last reviewed:</strong> [PLACEHOLDER] · Questions: <strong>its-observability-support@worldbankgroup.org</strong></p>
 </div>
 </section>
 <section class="page" id="overview">
