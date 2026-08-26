@@ -67,7 +67,15 @@
         { "id": "resources-section-2", "label": "Reusable assets & templates" },
         { "id": "resources-section-3", "label": "Event management & external references" },
         { "id": "resources-section-4", "label": "Help, content & measurement" },
-        { "id": "resources-section-5", "label": "Changelog" }
+        { "id": "resources-section-5", "label": "Changelog" },
+        { "id": "resources-tagging-naming", "label": "Tagging & Naming" },
+        { "id": "resources-service-tiers", "label": "Service Tiers" },
+        { "id": "resources-access", "label": "Access" },
+        { "id": "resources-logging", "label": "Logging" },
+        { "id": "resources-instrumentation-method", "label": "Instrumentation method" },
+        { "id": "resources-slis-slos", "label": "SLIs and SLOs" },
+        { "id": "resources-dashboards", "label": "Dashboards" },
+        { "id": "resources-alert-routing", "label": "Alert routing" }
       ]
     }
   ],
