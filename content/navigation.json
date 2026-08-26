@@ -6,10 +6,11 @@
       "label": "Home",
       "sections": [
         { "id": "home-section-1", "label": "Start here" },
-        { "id": "home-section-2", "label": "Learn the platform" },
-        { "id": "home-section-3", "label": "Understand the programme" },
-        { "id": "home-section-4", "label": "Looking for a dashboard?" },
-        { "id": "home-section-5", "label": "Where we are" }
+        { "id": "home-section-2", "label": "Three things you can do this week" },
+        { "id": "home-section-3", "label": "Learn the platform" },
+        { "id": "home-section-4", "label": "Understand the programme" },
+        { "id": "home-section-5", "label": "Looking for a dashboard?" },
+        { "id": "home-section-6", "label": "Where we are" }
       ]
     },
     {
@@ -62,7 +63,7 @@
       "index": "06",
       "label": "Standards, Support & Resources",
       "sections": [
-        { "id": "resources-section-1", "label": "Standards & delivery guide library" },
+        { "id": "resources-section-1", "label": "Standards, Support & Resources" },
         { "id": "resources-section-2", "label": "Reusable assets & templates" },
         { "id": "resources-section-3", "label": "Event management & external references" },
         { "id": "resources-section-4", "label": "Help, content & measurement" },
